@@ -3,16 +3,19 @@ package kodlamaio.northwind.entities.concretes;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
+//@Data
 @Entity //anatasyon yaptım
 @Table(name="products") //veri tabanında hangi tabloya karşılık geldiğini söylüyoruz
-
-
+//@AllArgsConstructor
+//@NoArgsConstructor
 public class Product {
 	@Id
-	@GeneratedValue //değerin nasıl artacağını söylüyor bir bir artacak
+	@GeneratedValue(strategy = GenerationType.IDENTITY) //değerin nasıl artacağını söylüyor bir bir artacak
 	@Column(name="product_id")
 	private int id;
 	
@@ -31,6 +34,7 @@ public class Product {
 	@Column(name="quantity_per_unit")
 	private String quantityPerUnit;
 	
+	
 	public Product() {
 		
 	}
@@ -45,44 +49,54 @@ public class Product {
 		this.unitInStock = unitInStock;
 		this.quantityPerUnit = quantityPerUnit;
 	}
-	
-	
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public int getCategoryId() {
 		return categoryId;
 	}
+
 	public void setCategoryId(int categoryId) {
 		this.categoryId = categoryId;
 	}
+
 	public String getProductName() {
 		return productName;
 	}
+
 	public void setProductName(String productName) {
 		this.productName = productName;
 	}
+
 	public double getUnitPrice() {
 		return unitPrice;
 	}
+
 	public void setUnitPrice(double unitPrice) {
 		this.unitPrice = unitPrice;
 	}
+
 	public short getUnitInStock() {
 		return unitInStock;
 	}
+
 	public void setUnitInStock(short unitInStock) {
 		this.unitInStock = unitInStock;
 	}
+
 	public String getQuantityPerUnit() {
 		return quantityPerUnit;
 	}
+
 	public void setQuantityPerUnit(String quantityPerUnit) {
 		this.quantityPerUnit = quantityPerUnit;
 	}
 	
-
+	
 }
